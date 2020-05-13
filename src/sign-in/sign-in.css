@@ -1,0 +1,71 @@
+/* mobile & desktop */
+
+.error {
+    box-shadow: 0 0 5px red;
+}
+
+.Sign-In-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.Sign-In-form label {
+    visibility: hidden;
+}
+
+.Sign-In-form button {
+    width: 100px;
+    cursor: pointer;
+    margin: 20px auto 0 auto;
+}
+
+.Sign-In-form select {
+    margin-top: 20px;
+}
+
+.Sign-In-form select,
+.Sign-In-form input,
+.Sign-In-form button {
+    padding-left: 5px;
+    border: 1px solid #a2a3a2;
+    font-family: 'Ubuntu', sans-serif;
+    color: grey;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.Sign-In-form select,
+.Sign-In-form input {
+    background-color: #e8e8e8;
+}
+
+.Sign-In-page {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    background: url('/images/8_a.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.Sign-In-page h1 {
+    text-align: center;
+    font-weight: lighter;
+    margin: 10px;
+    color: white;
+    font-size: 200px;
+    text-shadow: 1px 1px 5px grey;
+}
+
+@media all and (min-width: 600px) {
+    /* desktop */
+    .Sign-In-page h1 {
+        margin: 75px;
+    }
+    .Sign-In-form {
+        margin: 0 auto;
+    }
+}
