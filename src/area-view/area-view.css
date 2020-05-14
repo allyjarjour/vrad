@@ -1,3 +1,12 @@
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px #00000022;
+  position: relative;
+  font-size: 18px;
+}
+
 .card h1, .card h3 {
   display: inline;
 }
@@ -6,8 +15,21 @@
   float: right;
 }
 
+.card button {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: calc(50% - 50px);
+  bottom: 50px;
+  margin: 0 auto;
+  border-radius: 2000em;
+}
+
 .Area-View {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
+  gap: 20px;
+  height: calc(100vh - 40px);
+  padding: 20px;
+  background: #eee;
 }

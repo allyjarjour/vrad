@@ -44,6 +44,7 @@ export default class AreaView extends Component {
           <h3>{shortName}</h3>
           <p>{location}</p>
           <p>{about}</p>
+          <button>View listings &rarr;</button>
         </div>,
       ],
     });
