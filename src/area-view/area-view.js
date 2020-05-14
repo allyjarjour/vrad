@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import './area-view.css'
 
 export default class AreaView extends Component {
@@ -44,7 +45,9 @@ export default class AreaView extends Component {
           <h3>{shortName}</h3>
           <p>{location}</p>
           <p>{about}</p>
-          <button>View listings &rarr;</button>
+          <Link to={`/areas/${id}/listings`}>
+            <button>View listings &rarr;</button>
+          </Link>
         </div>,
       ],
     });
