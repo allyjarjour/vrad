@@ -45,7 +45,8 @@ export class SignIn extends Component {
       this.signedIn = true;
       await this.forceUpdate();
       this.props.updateLogin(this.state);
-    } else {
+    } 
+    else {
       this.forceUpdate();
     } 
   }
@@ -56,7 +57,7 @@ export class SignIn extends Component {
     }
 
     return (
-      <div className="Sign-In-page">
+      <div className="Sign-In-page" data-testid="background-img">
         <h1>vrad</h1>
         <form className="Sign-In-form">
           <label htmlFor="name">Name</label>
