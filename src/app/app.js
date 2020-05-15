@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import SignIn from '../sign-in/sign-in';
 import AreaView from '../area-view/area-view';
 import NavBar from '../nav-bar/nav-bar';
-import { Switch, Route } from 'react-router-dom';
+import Listings from '../listings/listings';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 export class App extends Component {
   constructor(props) {
@@ -43,6 +44,9 @@ export class App extends Component {
           />
         )}
         <Switch>
+          <Route path="/areas/:area_id/" render={({ match }) => (
+            <Listings area={match.params.area_id} />
+          )} /> 
           <Route path="/areas/" component={AreaView} />
           <Route
             path="/"

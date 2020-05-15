@@ -1,0 +1,11 @@
+.Listings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ddd;
+  float: left;
+  width: 320px;
+  padding-top: 10px;
+  height: calc(100vh - 60px);
+  overflow: scroll;
+}
