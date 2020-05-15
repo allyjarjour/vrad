@@ -1,6 +1,8 @@
 import "./sign-in.css";
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types'
+
 
 export class SignIn extends Component {
   constructor(props) {
@@ -8,14 +10,12 @@ export class SignIn extends Component {
 
     this.state = {
       name: "",
+      nameClass: "",
       email: "",
+      emailClass: "",
       purpose: "",
+      purposeClass: ""
     };
-    
-    this.signedIn = false;
-    this.nameClass = "";
-    this.emailClass = "";
-    this.purposeClass = "";
   }
 
   change = (e) => {
@@ -26,43 +26,39 @@ export class SignIn extends Component {
     });
   };
 
-  async signIn(e) {
+  signIn = (e) => {
     e.preventDefault();
 
     // check if inputs are filled
     let allFilled = true;
     for (const key in this.state) {
-      if (typeof this.state[key] !== "string") continue;
+      if (key.includes("Class")) continue;
+
       if (!this.state[key]) {
-        this[key + "Class"] = "error"; // adjust classes of inputs
+        this.setState({ [key + "Class"]: "error" }); // adjust classes of inputs
         allFilled = false;
       } else {
-        this[key + "Class"] = "";
+        this.setState({ [key + "Class"]: "" });
       }
     }
 
     if (allFilled) {
-      this.signedIn = true;
-      await this.forceUpdate();
-      this.props.updateLogin(this.state);
-    } 
-    else {
-      this.forceUpdate();
-    } 
+      const { name, email, purpose } = this.state;
+      this.props.updateLogin({name, purpose, email});
+    }
   }
 
   render() {
-    if (this.signedIn) {
+    if (this.props.signedIn) {
       return <Redirect to="/areas/" />
     }
-
     return (
-      <div className="Sign-In-page" data-testid="background-img">
+      <div className="Sign-In-page">
         <h1>vrad</h1>
         <form className="Sign-In-form">
           <label htmlFor="name">Name</label>
           <input
-            className={this.nameClass}
+            className={this.state.nameClass}
             type="text"
             name="name"
             onChange={this.change}
@@ -71,7 +67,7 @@ export class SignIn extends Component {
           />
           <label htmlFor="email">Email</label>
           <input
-            className={this.emailClass}
+            className={this.state.emailClass}
             type="text"
             name="email"
             onChange={this.change}
@@ -79,7 +75,7 @@ export class SignIn extends Component {
             placeholder="Email"
           />
           <select
-            className={this.purposeClass}
+            className={this.state.purposeClass}
             name="purpose"
             onChange={this.change}
           >
@@ -90,11 +86,16 @@ export class SignIn extends Component {
             <option value="business">Business</option>
             <option value="other">Other</option>
           </select>
-          <button onClick={this.signIn.bind(this)}>Sign In</button>
+          <button onClick={this.signIn}>Sign In</button>
         </form>
       </div>
     );
   }
+}
+
+SignIn.propTypes = {
+  updateLogin: PropTypes.func,
+  signedIn: PropTypes.bool,
 }
 
 export default SignIn;

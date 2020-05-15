@@ -25,14 +25,24 @@ describe('SignIn page', () => {
             expect(getByPlaceholderText('Email').value).toBe('samiscool@aol.com')
             expect(getByText('Choose one').value).toBe('Business')
         })
-        ///check sad path, it won't trigger fn and outline will appear
-        // it('When the Sign in button is clicked, it should trigger the signIn method', async () => {
-        //     const updateLogin = jest.fn()
-        //     const { getByText, rerender } = render(<SignIn updateLogin={updateLogin}/>)
-        //     fireEvent.click(getByText('Sign In'))
-        //     rerender(<SignIn updateLogin={updateLogin}/>)
-        //     expect(updateLogin).toHaveBeenCalled()
-        //     //need to add aysnc // await _____________________
-        // })
+        it('should not trigger the updateLogin method if all inputs are not filled or selected', () => {
+            const updateLogin = jest.fn()
+            const { getByText, getByPlaceholderText } = render(<SignIn updateLogin={updateLogin} />)
+            fireEvent.change(getByPlaceholderText('Name'), {target: {value: 'Sam'}})
+            fireEvent.change(getByPlaceholderText('Email'), {target: {value: 'samiscool@aol.com'}})
+            fireEvent.click(getByText('Sign In'))
+            expect(updateLogin).not.toHaveBeenCalled()
+        })
+        it('When the Sign in button is clicked with all inputs filled and selected, it should trigger the updateLogin method', () => {
+            const updateLogin = jest.fn()
+            const { getByText, getByPlaceholderText, getByRole } = render(<SignIn updateLogin={updateLogin} />)
+            fireEvent.change(getByPlaceholderText('Name'), {target: {value: 'Sam'}})
+            fireEvent.change(getByPlaceholderText('Email'), {target: {value: 'samiscool@aol.com'}})
+            fireEvent.change(getByRole('combobox'), {target: {value: 'Business'}})
+            fireEvent.click(getByText('Sign In'))
+            expect(updateLogin).toHaveBeenCalled()
+            // expect(updateLogin).toHaveBeenCalledWith({name: 'Sam', purpose: 'Business', email: 'samiscool@aol.com'})
+            //it keeps sending value for purpose as true
+        })
     })
 })
