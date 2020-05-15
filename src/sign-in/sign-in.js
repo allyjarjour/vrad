@@ -1,6 +1,8 @@
 import "./sign-in.css";
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types'
+
 
 export class SignIn extends Component {
   constructor(props) {
@@ -24,7 +26,7 @@ export class SignIn extends Component {
     });
   };
 
-  signIn(e) {
+  signIn = (e) => {
     e.preventDefault();
 
     // check if inputs are filled
@@ -84,11 +86,16 @@ export class SignIn extends Component {
             <option value="business">Business</option>
             <option value="other">Other</option>
           </select>
-          <button onClick={this.signIn.bind(this)}>Sign In</button>
+          <button onClick={this.signIn}>Sign In</button>
         </form>
       </div>
     );
   }
+}
+
+SignIn.propTypes = {
+  updateLogin: PropTypes.func,
+  signedIn: PropTypes.bool,
 }
 
 export default SignIn;

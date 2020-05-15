@@ -57,7 +57,9 @@ class NavBar extends Component {
 }
 
 NavBar.propTypes = {
-
+  name: PropTypes.string,
+  purpose: PropTypes.string,
+  signOut: PropTypes.func
 }
 
 export default NavBar
