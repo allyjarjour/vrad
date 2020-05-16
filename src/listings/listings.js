@@ -1,21 +1,21 @@
-import React, { Component } from 'react'
-import Listing from '../listing/listing';
+import React, { Component } from "react";
+import Listing from "../listing/listing";
 import "./listings.css";
 
 export default class Listings extends Component {
-
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-      listings: []
-    }
+      listings: [],
+    };
   }
 
   componentDidMount() {
+    if (!this.props.area) return; // for tests
     fetch("https://vrad-api.herokuapp.com/api/v1/areas/" + this.props.area)
-      .then(response => response.json())
-      .then(data => 
+      .then((response) => response.json())
+      .then((data) =>
         Promise.all(
           data.listings.map((listing) =>
             fetch("https://vrad-api.herokuapp.com" + listing).then((response) =>
@@ -23,7 +23,8 @@ export default class Listings extends Component {
             )
           )
         )
-    ).then(data => this.setState({ listings: data }));
+      )
+      .then((data) => this.setState({ listings: data }));
   }
 
   render() {
@@ -36,10 +37,10 @@ export default class Listings extends Component {
     ));
     return (
       <main>
-        <aside className="Listings">
+        <aside className="Listings" data-testid="listings">
           {listings}
         </aside>
       </main>
-    )
+    );
   }
 }
