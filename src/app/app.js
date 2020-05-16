@@ -4,6 +4,7 @@ import SignIn from '../sign-in/sign-in';
 import AreaView from '../area-view/area-view';
 import NavBar from '../nav-bar/nav-bar';
 import Listings from '../listings/listings';
+import ExpandedListing from '../expanded-listing/expanded-listing';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 export class App extends Component {
@@ -14,7 +15,7 @@ export class App extends Component {
       name: "",
       email: "",
       purpose: "",
-      signedIn: false
+      signedIn: false,
     }
   }
 
@@ -44,8 +45,17 @@ export class App extends Component {
           />
         )}
         <Switch>
+          <Route path="/areas/:area_id/listings/:listing_id/" render={({ match }) => (
+            <section className="listings-page" >
+              <Listings area={match.params.area_id} />
+              <ExpandedListing listingID={match.params.listing_id} />
+            </section>
+          )} /> 
           <Route path="/areas/:area_id/" render={({ match }) => (
-            <Listings area={match.params.area_id} />
+            <section className="listings-page" >
+              <Listings area={match.params.area_id} />
+              <ExpandedListing />
+            </section>
           )} /> 
           <Route path="/areas/" component={AreaView} />
           <Route

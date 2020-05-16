@@ -6,6 +6,7 @@
   float: left;
   width: 320px;
   padding-top: 10px;
-  height: calc(100vh - 60px);
+  /* height: calc(100vh - 60px); */
+  height: 92vh;
   overflow: scroll;
 }

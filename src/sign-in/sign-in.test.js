@@ -38,11 +38,10 @@ describe('SignIn page', () => {
             const { getByText, getByPlaceholderText, getByRole } = render(<SignIn updateLogin={updateLogin} />)
             fireEvent.change(getByPlaceholderText('Name'), {target: {value: 'Sam'}})
             fireEvent.change(getByPlaceholderText('Email'), {target: {value: 'samiscool@aol.com'}})
-            fireEvent.change(getByRole('combobox'), {target: {value: 'Business'}})
+            fireEvent.change(getByRole('combobox'), {target: {value: 'business'}})
             fireEvent.click(getByText('Sign In'))
             expect(updateLogin).toHaveBeenCalled()
-            // expect(updateLogin).toHaveBeenCalledWith({name: 'Sam', purpose: 'Business', email: 'samiscool@aol.com'})
-            //it keeps sending value for purpose as true
+            expect(updateLogin).toHaveBeenCalledWith({name: 'Sam', purpose: 'business', email: 'samiscool@aol.com'})
         })
     })
 })
