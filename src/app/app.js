@@ -9,8 +9,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 export class App extends Component {
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
       name: "",
       email: "",
@@ -19,20 +19,19 @@ export class App extends Component {
     }
   }
 
-  updateLogin = info => {
+  updateLogin = (info) => {
     this.setState({ ...info, signedIn: true });
     console.log(this.state.signedIn);
-    
-  }
+  };
 
   signOut = () => {
     this.setState({
       name: "",
       email: "",
       purpose: "",
-      signedIn: false
+      signedIn: false,
     });
-  }
+  };
 
   render() {
     return (
@@ -61,7 +60,10 @@ export class App extends Component {
           <Route
             path="/"
             component={() => (
-              <SignIn updateLogin={this.updateLogin} signedIn={this.state.signedIn} />
+              <SignIn
+                updateLogin={this.updateLogin}
+                signedIn={this.state.signedIn}
+              />
             )}
           />
         </Switch>
@@ -70,5 +72,4 @@ export class App extends Component {
   }
 }
 
-
-export default App
+export default App;
