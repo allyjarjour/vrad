@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Listing from "../listing/listing";
-import "./listings.css";
+import "./favorite-listings.css";
 
-export default class Listings extends Component {
+export default class FavoriteListings extends Component {
   constructor(props) {
     super(props);
 
@@ -12,19 +12,13 @@ export default class Listings extends Component {
   }
 
   componentDidMount() {
-    if (!this.props.area) return; // for tests
-    fetch("https://vrad-api.herokuapp.com/api/v1/areas/" + this.props.area)
-      .then((response) => response.json())
-      .then((data) =>
-        Promise.all(
-          data.listings.map((listing) =>
-            fetch("https://vrad-api.herokuapp.com" + listing).then((response) =>
-              response.json()
-            )
-          )
-        )
+    Promise.all(
+      this.props.favorites.map((favId) =>
+        fetch(
+          "https://vrad-api.herokuapp.com/api/v1/listings/" + favId
+        ).then((response) => response.json())
       )
-      .then((data) => this.setState({ listings: data }));
+    ).then((data) => this.setState({ listings: data }));
   }
 
   render() {
@@ -32,7 +26,7 @@ export default class Listings extends Component {
       <Listing
         key={listing.listing_id}
         name={listing.name}
-        url={"/areas/" + this.props.area + "/listings/" + listing.listing_id}
+        url={"/favorites/" + listing.listing_id}
         id={listing.listing_id}
         favorite={this.props.favorites.includes(Number(listing.listing_id))}
       />

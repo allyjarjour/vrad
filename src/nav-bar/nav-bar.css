@@ -40,3 +40,12 @@
   background: #b55 !important;
   color: white;
 }
+
+.logo {
+  color: white;
+  text-decoration: none;
+}
+
+.logo:visited {
+  color: white;
+}
