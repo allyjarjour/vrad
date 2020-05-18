@@ -10,6 +10,9 @@
 
 .Listing h3 {
   color: black;
+}
+
+a {
   text-decoration: none;
 }
 
@@ -17,4 +20,10 @@
   width: 90%;
   height: 200px;
   object-fit: cover;
+}
+
+.favorite {
+  background: #fee;
+  border: 2px solid #522;
+  margin-bottom: 8px;
 }

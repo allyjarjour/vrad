@@ -12,6 +12,11 @@ class NavBar extends Component {
     };
   }
 
+  action = (cb) => {
+    this.setState({ showMenu: false });
+    cb && cb();
+  };
+
   render() {
     const userName = this.props.name.split(" ")[0];
     let welcomeString = `Welcome, ${userName}! `;
@@ -28,7 +33,9 @@ class NavBar extends Component {
     return (
       <>
         <header className="Nav-Bar" data-testid="nav-bar">
-          <h3>vrad</h3>
+          <Link class="logo" to="/areas/">
+            <h3>vrad</h3>
+          </Link>
           <p>{welcomeString}</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,9 +50,14 @@ class NavBar extends Component {
         </header>
         {this.state.showMenu && (
           <div className="menu">
-            <button>Favorites</button>
+            <Link to="/favorites/">
+              <button onClick={() => this.action()}>Favorites</button>
+            </Link>
             <Link to="/">
-              <button onClick={this.props.signOut} className="danger-button">
+              <button
+                onClick={() => this.action(this.props.signOut)}
+                className="danger-button"
+              >
                 Sign Out
               </button>
             </Link>
