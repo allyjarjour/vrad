@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import ListingPhotos from '../listing-photos/listing-photos'
 import ListingDetails from '../listing-details/listing-details'
 import ListingTags from '../listing-tags/listing-tags'
-import FavoriteButton from "./favorite-button";
+import FavoriteButton from "../favorite-button/favorite-button";
 
 
 
@@ -56,25 +56,25 @@ export default class ExpandedListing extends Component {
             <FavoriteButton
               toggleFavorite={() =>
                 this.props.toggleFavorite(this.state.listing_id)
-              }
+                }
               favorited={this.props.favorited}
             />
           </div>
           <ListingTags 
-                area={this.state.area}
-                superhost={this.state.superhost}
-            />
+            area={this.state.area}
+            superhost={this.state.superhost}
+          />
           <ListingPhotos 
-                    name={this.state.name} 
-                    listing_id={this.state.listing_id} 
-                />
+            name={this.state.name} 
+            listing_id={this.state.listing_id} 
+          />
           <ListingDetails 
-                    cost={this.state.cost} 
-                    beds={this.state.beds} 
-                    baths={this.state.baths}
-                    features={this.state.features}
-                    address={this.state.address}
-                />
+            cost={this.state.cost} 
+            beds={this.state.beds} 
+            baths={this.state.baths}
+            features={this.state.features}
+            address={this.state.address}
+          />
         </section>
       );
     }
