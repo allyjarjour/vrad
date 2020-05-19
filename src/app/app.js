@@ -19,11 +19,45 @@ export class App extends Component {
       signedIn: false,
       favorites: [],
     };
+
+    if (window) window.addEventListener("beforeunload", this.saveDataToLS);
   }
+
+  componentDidMount() {
+    this.populateDataFromLS();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("beforeunload", this.saveDataToLS);
+  }
+
+  populateDataFromLS = () => {
+    if (!localStorage) return;
+    const data = localStorage.getItem("userData");
+    if (data) {
+      this.setState({ ...JSON.parse(data), signedIn: true });
+    }
+  };
+
+  saveDataToLS = () => {
+    if (!localStorage) return;
+    if (!this.state.signedIn) return;
+    const data = {
+      name: this.state.name,
+      email: this.state.email,
+      purpose: this.state.purpose,
+      favorites: this.state.favorites,
+    };
+    localStorage.setItem("userData", JSON.stringify(data));
+  };
+
+  clearLSData = () => {
+    if (!localStorage) return;
+    localStorage.removeItem("userData");
+  };
 
   updateLogin = (info) => {
     this.setState({ ...info, signedIn: true });
-    console.log(this.state.signedIn);
   };
 
   signOut = () => {
@@ -31,8 +65,10 @@ export class App extends Component {
       name: "",
       email: "",
       purpose: "",
+      favorites: [],
       signedIn: false,
     });
+    this.clearLSData();
   };
 
   addFavorite = (id) =>
