@@ -33,10 +33,10 @@ class NavBar extends Component {
     return (
       <>
         <header className="Nav-Bar" data-testid="nav-bar">
-          <Link class="logo" to="/areas/">
+          <Link className="logo" to="/areas/">
             <h3>vrad</h3>
           </Link>
-          <p>{welcomeString}</p>
+          <p className="nav-welcome">{welcomeString}</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

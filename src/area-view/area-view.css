@@ -15,22 +15,39 @@
   float: right;
 }
 
+.about-text {
+  padding-bottom: 20px;
+}
+
+.card p {
+  margin-top: 20px;
+}
+
 .card button {
   width: 100px;
   height: 30px;
   position: absolute;
-  left: calc(50% - 50px);
-  bottom: 50px;
-  margin: 0 auto;
+  bottom: 0px;
   border-radius: 2000em;
+  cursor: pointer;
 }
 
 .Area-View {
+  gap: 15px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  /* height: calc(100vh - 100px); */
-  height: 92vh;
-  padding: 20px;
+  grid-template-columns: 1fr;
   background: #eee;
+}
+
+@media all and (min-width: 600px) {
+  .Area-View {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    height: 92vh;
+    padding: 20px;
+  }
+  .card button {
+    left: calc(50% - 50px);
+    bottom: 40px;
+  }
 }

@@ -30,6 +30,7 @@ export default class Listings extends Component {
   render() {
     const listings = this.state.listings.map((listing) => (
       <Listing
+        areaID={this.props.area}
         key={listing.listing_id}
         name={listing.name}
         url={"/areas/" + this.props.area + "/listings/" + listing.listing_id}

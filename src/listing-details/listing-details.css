@@ -1,6 +1,6 @@
 .listing-details {
     display: flex;
-    padding: 40px;
+    padding: 10px;
 }
 
 .address {
@@ -15,4 +15,10 @@
 
 .address h2, .features h2 {
     margin-bottom: 10px;
+}
+
+@media all and (min-width: 600px) {
+    .listing-details {
+        padding: 40px;
+    }
 }
