@@ -1,47 +1,45 @@
 .none-clicked {
-    width: 60%;
-    height: 400px;
-    background-color: #DEDEDE;
-    margin: 100px auto;
-    text-align: center;
-    padding: 100px;
-    border-radius: 15px;
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+  width: 60%;
+  height: 400px;
+  background-color: #DEDEDE;
+  margin: 100px auto;
+  text-align: center;
+  padding: 100px;
+  border-radius: 15px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .none-clicked p {
-    display: inline;
-    font-size: 40px;
+  display: inline;
+  font-size: 40px;
 }
 
 .listings-page {
-    display: flex;
+  display: flex;
 }
 
 .details-section {
-    height: 92vh;
-    overflow: scroll;
+  height: 92vh;
+  overflow: scroll;
 }
 
 .listings-page h1 {
-    font-size: 35px;
-    text-align: center;
+  font-size: 35px;
+  text-align: center;
 }
 
 .listing-title-container {
-    display: flex;
-    width: 50%;
-    margin: 20px auto;
-    justify-content: center;
+  display: flex;
+  width: 50%;
+  margin: 20px auto;
+  justify-content: center;
 }
 
 .fave-heart {
-    margin: 10px;
+  margin: 10px;
 }
 
-
-
-
-
-
-
+.Favorite-Button {
+  border: none;
+  background: none;
+}
