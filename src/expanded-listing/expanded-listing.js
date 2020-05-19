@@ -42,11 +42,7 @@ export default class ExpandedListing extends Component {
 
   render() {
     if (!this.props.listingID) {
-      return (
-        <div className="none-clicked">
-          <p>Click on a listing to the left to read more</p>
-        </div>
-      );
+      return null
     } else {
       return (
         <section className="details-section">
@@ -83,4 +79,6 @@ export default class ExpandedListing extends Component {
 
 ExpandedListing.propTypes = {
   listingID: PropTypes.string,
+  favorited: PropTypes.bool,
+  toggleFavorite: PropTypes.func
 };

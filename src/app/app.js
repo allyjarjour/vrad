@@ -7,6 +7,7 @@ import Listings from "../listings/listings";
 import FavoriteListings from "../favorite-listings/favorite-listings";
 import ExpandedListing from "../expanded-listing/expanded-listing";
 import { Switch, Route } from "react-router-dom";
+import NoListingAlert from "../no-listing-alert/no-listing-alert"
 
 export class App extends Component {
   constructor(props) {
@@ -122,7 +123,9 @@ export class App extends Component {
             component={() => (
               <section className="listings-page">
                 <FavoriteListings favorites={this.state.favorites} />
-                <ExpandedListing favorites={this.state.favorites} page={} />
+                <ExpandedListing />
+                <NoListingAlert alertType={this.state.favorites.length ? 
+                  "reg-listing-alert" : "favorites-alert"} />
               </section>
             )}
           />
@@ -138,7 +141,6 @@ export class App extends Component {
                   listingID={match.params.listing_id}
                   favorited={this.isFavorite(match.params.listing_id)}
                   toggleFavorite={this.toggleFavorite}
-                  favorites={this.state.favorites}
                 />
               </section>
             )}
@@ -151,7 +153,8 @@ export class App extends Component {
                   area={match.params.area_id}
                   favorites={this.state.favorites}
                 />
-                <ExpandedListing favorites={this.state.favorites} />
+                <ExpandedListing />
+                <NoListingAlert alertType={"reg-listing-alert"} />
               </section>
             )}
           />
