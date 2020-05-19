@@ -45,7 +45,7 @@ export default class AreaView extends Component {
           <h1>{name}</h1>
           <h3>{shortName}</h3>
           <p>{location}</p>
-          <p>{about}</p>
+          <p className="about-text">{about}</p>
           <Link to={`/areas/${id}/listings`}>
             <button>View listings &rarr;</button>
           </Link>

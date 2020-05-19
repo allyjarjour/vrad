@@ -86,7 +86,7 @@ export class App extends Component {
             component={() => (
               <section className="listings-page">
                 <FavoriteListings favorites={this.state.favorites} />
-                <ExpandedListing />
+                <ExpandedListing favorites={this.state.favorites} />
               </section>
             )}
           />
@@ -102,6 +102,7 @@ export class App extends Component {
                   listingID={match.params.listing_id}
                   favorited={this.isFavorite(match.params.listing_id)}
                   toggleFavorite={this.toggleFavorite}
+                  favorites={this.state.favorites}
                 />
               </section>
             )}
@@ -114,7 +115,7 @@ export class App extends Component {
                   area={match.params.area_id}
                   favorites={this.state.favorites}
                 />
-                <ExpandedListing />
+                <ExpandedListing favorites={this.state.favorites} />
               </section>
             )}
           />

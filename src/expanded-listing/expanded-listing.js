@@ -44,7 +44,8 @@ export default class ExpandedListing extends Component {
     if (!this.props.listingID) {
       return (
         <div className="none-clicked">
-          <p>Click on a listing to the left to read more</p>
+          {!this.props.favorites.length ? <p>You have nothing favorited yet!</p> : 
+          <p>Click on a listing to the left to read more</p>}
         </div>
       );
     } else {
@@ -83,4 +84,7 @@ export default class ExpandedListing extends Component {
 
 ExpandedListing.propTypes = {
   listingID: PropTypes.string,
+  favorited: PropTypes.bool,
+  toggleFavorite: PropTypes.func,
+  favorites: PropTypes.array
 };
