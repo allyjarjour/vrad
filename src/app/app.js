@@ -122,7 +122,7 @@ export class App extends Component {
             component={() => (
               <section className="listings-page">
                 <FavoriteListings favorites={this.state.favorites} />
-                <ExpandedListing favorites={this.state.favorites} />
+                <ExpandedListing favorites={this.state.favorites} page={} />
               </section>
             )}
           />
