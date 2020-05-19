@@ -10,3 +10,8 @@
   height: 92vh;
   overflow: scroll;
 }
+
+@media all and (min-width: 600px) {
+  /* desktop */
+  
+}

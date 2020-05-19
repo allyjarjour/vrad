@@ -39,78 +39,9 @@
     margin: 10px;
 }
 
-.photo-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 275px 275px;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    margin: 20px;
-}
 
-.photo-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
-.photo-one {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 3;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-}
 
-.tags {
-    display: flex;
-    width: 200px;
-    margin: 20px auto;
-    justify-content: space-around;
-}
-
-p.area-tag,
-p.host-tag {
-    text-transform: uppercase;    
-    background-color: #FFDCAA;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 2px 2px #00000022;
-    margin-right: 10px;
-}
-
-.photo-two {
-    grid-column-start: 3;
-    grid-row-start: 1;
-    border-top-right-radius: 15px;
-}
-
-.photo-three {
-    grid-column-start: 3;
-    grid-row-start: 2;
-    border-bottom-right-radius: 15px;
-}
-
-.listing-details {
-    display: flex;
-    padding: 40px;
-}
-
-.address {
-    flex: 1;
-    margin-right: 30px;
-}
-
-.features {
-    flex: 2;
-    margin-left: 30px;
-}
-
-.address h2,
-.features h2 {
-    margin-bottom: 10px;
-}
 
 
 
