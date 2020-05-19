@@ -1,7 +1,12 @@
-import React, { Component } from "react";
-import "./expanded-listing.css";
-import PropTypes from "prop-types";
-import FavoriteButton from "./favorite-button";
+import React, { Component } from 'react';
+import './expanded-listing.css';
+import PropTypes from 'prop-types'
+import ListingPhotos from '../listing-photos/listing-photos'
+import ListingDetails from '../listing-details/listing-details'
+import ListingTags from '../listing-tags/listing-tags'
+import FavoriteButton from "../favorite-button/favorite-button";
+
+
 
 export default class ExpandedListing extends Component {
   constructor(props) {
@@ -51,47 +56,25 @@ export default class ExpandedListing extends Component {
             <FavoriteButton
               toggleFavorite={() =>
                 this.props.toggleFavorite(this.state.listing_id)
-              }
+                }
               favorited={this.props.favorited}
             />
           </div>
-          <div className="tags">
-            <p className="area-tag">{this.state.area}</p>
-            {this.state.superhost && <p className="host-tag">superhost</p>}
-          </div>
-          <div className="photo-container">
-            <img
-              className="photo-one"
-              src={`/images/${this.state.listing_id}_a.jpg`}
-              alt={this.state.name}
-            />
-            <img
-              className="photo-two"
-              src={`/images/${this.state.listing_id}_b.jpg`}
-              alt={this.state.name}
-            />
-            <img
-              className="photo-three"
-              src={`/images/${this.state.listing_id}_c.jpg`}
-              alt={this.state.name}
-            />
-          </div>
-          <div className="listing-details">
-            <div className="features">
-              <h2>Listing details:</h2>
-              <p>${this.state.cost}/night</p>
-              <p>{this.state.beds} beds</p>
-              <p>{this.state.baths} baths</p>
-              {this.state.features &&
-                this.state.features.map((feature, i) => (
-                  <p key={i}>{feature}</p>
-                ))}
-            </div>
-            <div className="address">
-              <h2>Address</h2>
-              <p>{this.state.address}, Denver, CO</p>
-            </div>
-          </div>
+          <ListingTags 
+            area={this.state.area}
+            superhost={this.state.superhost}
+          />
+          <ListingPhotos 
+            name={this.state.name} 
+            listing_id={this.state.listing_id} 
+          />
+          <ListingDetails 
+            cost={this.state.cost} 
+            beds={this.state.beds} 
+            baths={this.state.baths}
+            features={this.state.features}
+            address={this.state.address}
+          />
         </section>
       );
     }

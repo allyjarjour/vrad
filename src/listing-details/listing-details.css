@@ -1,0 +1,18 @@
+.listing-details {
+    display: flex;
+    padding: 40px;
+}
+
+.address {
+    flex: 1;
+    margin-right: 30px;
+}
+
+.features {
+    flex: 2;
+    margin-left: 30px;
+}
+
+.address h2, .features h2 {
+    margin-bottom: 10px;
+}

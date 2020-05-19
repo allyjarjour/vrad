@@ -1,0 +1,15 @@
+.tags {
+    display: flex;
+    width: 200px;
+    margin: 20px auto;
+    justify-content: space-around;
+}
+
+p.area-tag, p.host-tag {
+    text-transform: uppercase;    
+    background-color: #FFDCAA;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px #00000022;
+    margin-right: 10px;
+}
