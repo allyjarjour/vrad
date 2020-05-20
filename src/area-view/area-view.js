@@ -15,7 +15,7 @@ export default class AreaView extends Component {
   }
 
   componentDidMount = async () => {
-    let areas = await getAreas()
+    let areas = await getAreas();
     this.setState({
       areaCodes: areas.areas.reduce((acc, area) => {
         const id = area.details.match(/\d{3}/g);
@@ -23,7 +23,7 @@ export default class AreaView extends Component {
         return acc;
       }, {}),
     });
-      let areaData = await getAreaData()
+      let areaData = await getAreaData();
       areaData.forEach((area) => this.makeButton(area));
   }
 

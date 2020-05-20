@@ -7,12 +7,18 @@ import { MemoryRouter } from "react-router-dom";
 describe("NavBar", () => {
   it("should be able to render a component to the page", () => {
     const { getByTestId } = render(
-      <NavBar name="Bat man" purpose="business" />
+      <MemoryRouter>
+        <NavBar name="Bat man" purpose="business" />
+      </MemoryRouter>
     );
     expect(getByTestId("nav-bar")).toBeInTheDocument();
   });
   it("should have user's first name and a personalized message", () => {
-    const { getByText } = render(<NavBar name="Bat man" purpose="business" />);
+    const { getByText } = render(
+      <MemoryRouter>
+        <NavBar name="Bat man" purpose="business" />
+      </MemoryRouter>
+    );
     expect(getByText("Welcome, Bat! Stay productive!")).toBeInTheDocument();
   });
   it("should show an options menu when the user icon is clicked", () => {
