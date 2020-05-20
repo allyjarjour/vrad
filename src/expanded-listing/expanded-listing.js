@@ -23,8 +23,8 @@ export default class ExpandedListing extends Component {
   }
 
   componentDidMount = async () => {
-    let data = await getListingData(this.props.listingID)
-    if (data) {
+    if (this.props.listingID) {
+      let data = await getListingData(this.props.listingID)
       let { address, area, details, listing_id, name } = await data
       this.setState({
         name: name,
