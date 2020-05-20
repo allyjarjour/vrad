@@ -15,7 +15,8 @@ import { areasData, areaData, listingData } from "../testing-data";
 jest.mock("../apiCalls.js");
 getAreas.mockResolvedValue(areasData);
 getAreaData.mockResolvedValue(areaData);
-getAreaListings.mockResolvedValue(listingData);
+getAreaListings.mockResolvedValue([listingData]);
+getListingData.mockResolvedValue(listingData);
 
 describe("App", () => {
   it("should render without crashing", () => {
@@ -77,5 +78,24 @@ describe("App", () => {
     await wait();
     const button = getAllByText(/View ([0-9]+) listings/)[0];
     fireEvent.click(button);
+    expect(button).not.toBeInTheDocument();
+    await wait();
+    expect(getByText("Lowkey Industrial Chic")).toBeInTheDocument();
+  });
+  it("should display listing details when clicked", async () => {
+    const history = createMemoryHistory();
+    history.push("/areas/590/listings/");
+    const app = (
+      <Router history={history}>
+        <App />
+      </Router>
+    );
+
+    const { getByText } = render(app);
+    await wait();
+    fireEvent.click(getByText(/Chic/));
+    await wait();
+    expect(getByText("2441 Broadway Ave", { exact: false }));
+    expect(getByText("$220/night")).toBeInTheDocument();
   });
 });
