@@ -31,7 +31,7 @@ describe("NavBar", () => {
     const menuButton = getByTestId("menu-button");
     fireEvent.click(menuButton);
     rerender(navBar);
-    expect(getByText("Favorites")).toBeInTheDocument();
+    expect(getByText(/Favorites/)).toBeInTheDocument();
     expect(getByText("Sign Out")).toBeInTheDocument();
   });
   it("should correctly log the user out", () => {
