@@ -51,7 +51,9 @@ class NavBar extends Component {
         {this.state.showMenu && (
           <div className="menu">
             <Link to="/favorites/">
-              <button onClick={() => this.action()}>Favorites</button>
+              <button onClick={() => this.action()}>
+                Favorites ({this.props.numFavorites})
+              </button>
             </Link>
             <Link to="/">
               <button
@@ -72,6 +74,7 @@ NavBar.propTypes = {
   name: PropTypes.string,
   purpose: PropTypes.string,
   signOut: PropTypes.func,
+  numFavorites: PropTypes.number,
 };
 
 export default NavBar;

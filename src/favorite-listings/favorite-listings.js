@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Listing from "../listing/listing";
-import "./favorite-listings.css";
+import { getFaveListings } from "../apiCalls";
 
 export default class FavoriteListings extends Component {
   constructor(props) {
@@ -11,15 +12,10 @@ export default class FavoriteListings extends Component {
     };
   }
 
-  componentDidMount() {
-    Promise.all(
-      this.props.favorites.map((favId) =>
-        fetch(
-          "https://vrad-api.herokuapp.com/api/v1/listings/" + favId
-        ).then((response) => response.json())
-      )
-    ).then((data) => this.setState({ listings: data }));
-  }
+  componentDidMount = async () => {
+    let data = await getFaveListings(this.props.favorites);
+    this.setState({ listings: data });
+  };
 
   render() {
     const listings = this.state.listings.map((listing) => (
@@ -40,3 +36,7 @@ export default class FavoriteListings extends Component {
     );
   }
 }
+
+FavoriteListings.propTypes = {
+  favorites: PropTypes.arrayOf(PropTypes.number),
+};
