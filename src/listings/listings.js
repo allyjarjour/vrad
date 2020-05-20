@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Listing from "../listing/listing";
 import "./listings.css";
 import { getAreaListings } from '../apiCalls'
@@ -39,3 +40,8 @@ export default class Listings extends Component {
     );
   }
 }
+
+Listings.propTypes = {
+  area: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  favorites: PropTypes.arrayOf(PropTypes.number),
+};

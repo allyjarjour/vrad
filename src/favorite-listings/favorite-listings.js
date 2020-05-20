@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Listing from "../listing/listing";
 import "./favorite-listings.css";
 import { getFaveListings } from '../apiCalls'
@@ -37,3 +38,7 @@ export default class FavoriteListings extends Component {
     );
   }
 }
+
+FavoriteListings.propTypes = {
+  favorites: PropTypes.arrayOf(PropTypes.number),
+};
