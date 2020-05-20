@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./area-view.css";
-import { getAreas, getAreaData } from '../apiCalls'
-
+import { getAreas, getAreaData } from "../apiCalls";
 
 export default class AreaView extends Component {
   constructor(props) {
@@ -23,11 +22,11 @@ export default class AreaView extends Component {
         return acc;
       }, {}),
     });
-      let areaData = await getAreaData();
-      areaData.forEach((area) => this.makeButton(area));
-  }
+    let areaData = await getAreaData();
+    areaData.forEach((area) => this.makeButton(area));
+  };
 
-  makeButton = ({ name, location, about, id }) => {
+  makeButton = ({ name, location, about, id, listings }) => {
     const shortName = this.state.areaCodes[id];
 
     this.setState({
@@ -39,7 +38,7 @@ export default class AreaView extends Component {
           <p>{location}</p>
           <p className="about-text">{about}</p>
           <Link to={`/areas/${id}/listings`}>
-            <button>View listings &rarr;</button>
+            <button>View {listings.length} listings &rarr;</button>
           </Link>
         </div>,
       ],

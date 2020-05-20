@@ -84,3 +84,25 @@ export const areaData = [
     ],
   },
 ];
+
+export const listingData = {
+  listing_id: 44,
+  area_id: 590,
+  name: "Lowkey Industrial Chic",
+  address: {
+    street: "2441 Broadway Ave",
+    zip: "80205",
+  },
+  details: {
+    neighborhood_id: 5124122,
+    superhost: true,
+    seller_source: "91jss1",
+    beds: 1,
+    baths: 1.5,
+    cost_per_night: 220,
+    features: ["city views", "industrial motif", "rooftop"],
+  },
+  dev_id: "jaenku",
+  area: "rino",
+  db_connect: 694530,
+};

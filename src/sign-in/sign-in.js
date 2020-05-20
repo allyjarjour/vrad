@@ -1,8 +1,7 @@
 import "./sign-in.css";
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types'
-
+import { Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export class SignIn extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ export class SignIn extends Component {
       email: "",
       emailClass: "",
       purpose: "",
-      purposeClass: ""
+      purposeClass: "",
     };
   }
 
@@ -44,16 +43,16 @@ export class SignIn extends Component {
 
     if (allFilled) {
       const { name, email, purpose } = this.state;
-      this.props.updateLogin({name, purpose, email});
+      this.props.updateLogin({ name, purpose, email });
     }
-  }
+  };
 
   render() {
     if (this.props.signedIn) {
-      return <Redirect to="/areas/" />
+      return <Redirect to="/areas/" />;
     }
     return (
-      <div className="Sign-In-page">
+      <div className="Sign-In-page" data-testid="login-page">
         <h1>vrad</h1>
         <form className="Sign-In-form">
           <label htmlFor="name">Name</label>
@@ -78,8 +77,9 @@ export class SignIn extends Component {
             className={this.state.purposeClass}
             name="purpose"
             onChange={this.change}
+            defaultValue="error"
           >
-            <option disabled selected value>
+            <option disabled value="error">
               Choose one
             </option>
             <option value="vacation">Vacation</option>
@@ -96,6 +96,6 @@ export class SignIn extends Component {
 SignIn.propTypes = {
   updateLogin: PropTypes.func,
   signedIn: PropTypes.bool,
-}
+};
 
 export default SignIn;

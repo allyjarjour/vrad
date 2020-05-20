@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Listing from "../listing/listing";
-import "./favorite-listings.css";
-import { getFaveListings } from '../apiCalls'
-
+import { getFaveListings } from "../apiCalls";
 
 export default class FavoriteListings extends Component {
   constructor(props) {
@@ -15,9 +13,9 @@ export default class FavoriteListings extends Component {
   }
 
   componentDidMount = async () => {
-    let data = await getFaveListings(this.props.favorites)
+    let data = await getFaveListings(this.props.favorites);
     this.setState({ listings: data });
-  }
+  };
 
   render() {
     const listings = this.state.listings.map((listing) => (
