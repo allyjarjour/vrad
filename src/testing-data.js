@@ -85,7 +85,7 @@ export const areaData = [
   },
 ];
 
-export const listingData = {
+export const listingDataOne = {
   listing_id: 44,
   area_id: 590,
   name: "Lowkey Industrial Chic",
@@ -105,4 +105,26 @@ export const listingData = {
   dev_id: "jaenku",
   area: "rino",
   db_connect: 694530,
+};
+
+export const listingDataTwo = {
+  listing_id: 221,
+  area_id: 590,
+  name: "New Modern Flat in RiNo",
+  address: {
+    street: "2459 Lawrence St",
+    zip: "80205",
+  },
+  details: {
+    neighborhood_id: 5124122,
+    superhost: true,
+    seller_source: "91jss1",
+    beds: 3,
+    baths: 5,
+    cost_per_night: 285,
+    features: ["rooftop", "proximity to bars/restaurants", "new appliances"],
+  },
+  dev_id: "amukct",
+  area: "rino",
+  db_connect: 872937,
 };

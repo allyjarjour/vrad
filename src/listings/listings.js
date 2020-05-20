@@ -17,6 +17,7 @@ export default class Listings extends Component {
   componentDidMount = async () => {
     if (!this.props.area) return; // for tests
     let data = await getAreaListings(this.props.area)
+    
     this.setState({ listings: data });
   }
 

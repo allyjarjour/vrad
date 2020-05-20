@@ -11,12 +11,12 @@ import {
   getFaveListings,
   getListingData,
 } from "../apiCalls";
-import { areasData, areaData, listingData } from "../testing-data";
+import { areasData, areaData, listingDataOne } from "../testing-data";
 jest.mock("../apiCalls.js");
 getAreas.mockResolvedValue(areasData);
 getAreaData.mockResolvedValue(areaData);
-getAreaListings.mockResolvedValue([listingData]);
-getListingData.mockResolvedValue(listingData);
+getAreaListings.mockResolvedValue([listingDataOne]);
+getListingData.mockResolvedValue(listingDataOne);
 
 describe("App", () => {
   it("should render without crashing", () => {
