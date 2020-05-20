@@ -1,6 +1,6 @@
 import React from "react";
 import AreaView from "./area-view";
-import { render, wait, waitFor, fireEvent } from "@testing-library/react";
+import { render, wait, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { MemoryRouter } from "react-router-dom";
 import { getAreas, getAreaData } from "../apiCalls";
@@ -37,7 +37,9 @@ describe("AreaView", () => {
         expect(getByText("Cap Hill")).toBeInTheDocument()
     );
   });
-  it.skip("should redirect the user to the correct area when clicked", async () => {
+  it("should redirect the user to the correct area when clicked", async () => {
+    getAreas.mockResolvedValueOnce(areasData);
+    getAreaData.mockResolvedValueOnce(areaData);
     const { getByText, rerender } = render(
       <MemoryRouter>
         <AreaView />
