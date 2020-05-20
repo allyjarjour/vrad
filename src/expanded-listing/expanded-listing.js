@@ -5,6 +5,8 @@ import ListingPhotos from '../listing-photos/listing-photos'
 import ListingDetails from '../listing-details/listing-details'
 import ListingTags from '../listing-tags/listing-tags'
 import FavoriteButton from "../favorite-button/favorite-button";
+import { getListingData } from '../apiCalls'
+
 
 
 
@@ -20,24 +22,23 @@ export default class ExpandedListing extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch(
-      "https://vrad-api.herokuapp.com/api/v1/listings/" + this.props.listingID
-    )
-      .then((res) => res.json())
-      .then(({ address, area, details, listing_id, name }) =>
-        this.setState({
-          name: name,
-          address: address.street,
-          area: area,
-          beds: details.beds,
-          baths: details.baths,
-          cost: details.cost_per_night,
-          features: details.features,
-          listing_id: listing_id,
-          superhost: details.superhost,
-        })
-      );
+  componentDidMount = async () => {
+    let data = await getListingData(this.props.listingID)
+    if (data) {
+      let { address, area, details, listing_id, name } = await data
+      this.setState({
+        name: name,
+        address: address.street,
+        area: area,
+        beds: details.beds,
+        baths: details.baths,
+        cost: details.cost_per_night,
+        features: details.features,
+        listing_id: listing_id,
+        superhost: details.superhost,
+      })
+
+    }
   }
 
   render() {
