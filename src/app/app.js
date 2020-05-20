@@ -113,7 +113,7 @@ export class App extends Component {
                 <FavoriteListings favorites={this.state.favorites} />
                 <ExpandedListing
                   listingID={match.params.id}
-                  favorited={true}
+                  favorited={this.isFavorite(match.params.id)}
                   toggleFavorite={this.toggleFavorite}
                 />
               </section>
