@@ -24,5 +24,5 @@ This application was created using `create-react-app`.
 
 <img width="225" alt="areas view for mobile layout" src="https://user-images.githubusercontent.com/52683607/82508245-af61a880-9ac1-11ea-8598-d7a7d3ff6d0d.png">
 
-<img width="225" alt="expanded listing view for mobile layout" src="https://user-images.githubusercontent.com/52683607/82508272-c7d1c300-9ac1-11ea-9dfb-4763910020fd.png">
+<img width="225" alt="expanded listing view for mobile layout" src="https://user-images.githubusercontent.com/52683607/82509780-15e8c580-9ac6-11ea-87b5-f974a7b99118.png">
 
