@@ -1,68 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# vrad
+We created a bnb rental viewer showcasing listings in four Denver neighborhoods. After signing in, users can select one of four areas before being directed to a listings page. Once the user clicks on a particular listing on the left, an expanded view is populated on the right hand side. The user can favorite listings and navigate to all their favorites by clicking the favorites button (in profile dropdown menu). We utilized React Router for dynamic routing for each listing. We tested the app using React Testing Library and Jest.
 
-## Available Scripts
+## Setup
+1. Clone this repo
+1. Run `npm install`
+1. Run `npm start`
+1. Enjoy!
 
-In the project directory, you can run:
+This application was created using `create-react-app`.
 
-### `npm start`
+## Screenshots
+![favorites](https://user-images.githubusercontent.com/23513486/82505223-65c18f80-9aba-11ea-8668-92540eb1c4fe.gif)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Desktop layout
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<img width="1432" alt="sign in page" src="https://user-images.githubusercontent.com/52683607/82508491-6e1dc880-9ac2-11ea-8a8f-c9fe9403ccab.png">
 
-### `npm test`
+<img width="1429" alt="listing page" src="https://user-images.githubusercontent.com/52683607/82508717-2f3c4280-9ac3-11ea-9fcd-a5c101223fed.png">
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Mobile layout
 
-### `npm run build`
+<img width="225" alt="sign-in page for mobile layout" src="https://user-images.githubusercontent.com/52683607/82507874-a7edcf80-9ac0-11ea-8870-846be13c3e84.png">
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="225" alt="areas view for mobile layout" src="https://user-images.githubusercontent.com/52683607/82508245-af61a880-9ac1-11ea-8598-d7a7d3ff6d0d.png">
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<img width="225" alt="expanded listing view for mobile layout" src="https://user-images.githubusercontent.com/52683607/82509780-15e8c580-9ac6-11ea-87b5-f974a7b99118.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

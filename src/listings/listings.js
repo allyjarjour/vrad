@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Listing from "../listing/listing";
 import "./listings.css";
+import { getAreaListings } from '../apiCalls'
+
 
 export default class Listings extends Component {
   constructor(props) {
@@ -11,25 +14,17 @@ export default class Listings extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
     if (!this.props.area) return; // for tests
-    fetch("https://vrad-api.herokuapp.com/api/v1/areas/" + this.props.area)
-      .then((response) => response.json())
-      .then((data) =>
-        Promise.all(
-          data.listings.map((listing) =>
-            fetch("https://vrad-api.herokuapp.com" + listing).then((response) =>
-              response.json()
-            )
-          )
-        )
-      )
-      .then((data) => this.setState({ listings: data }));
+    let data = await getAreaListings(this.props.area)
+    
+    this.setState({ listings: data });
   }
 
   render() {
     const listings = this.state.listings.map((listing) => (
       <Listing
+        areaID={this.props.area}
         key={listing.listing_id}
         name={listing.name}
         url={"/areas/" + this.props.area + "/listings/" + listing.listing_id}
@@ -46,3 +41,8 @@ export default class Listings extends Component {
     );
   }
 }
+
+Listings.propTypes = {
+  area: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  favorites: PropTypes.arrayOf(PropTypes.number),
+};

@@ -33,10 +33,10 @@ class NavBar extends Component {
     return (
       <>
         <header className="Nav-Bar" data-testid="nav-bar">
-          <Link class="logo" to="/areas/">
+          <Link className="logo" to="/areas/">
             <h3>vrad</h3>
           </Link>
-          <p>{welcomeString}</p>
+          <p className="nav-welcome">{welcomeString}</p>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -51,7 +51,9 @@ class NavBar extends Component {
         {this.state.showMenu && (
           <div className="menu">
             <Link to="/favorites/">
-              <button onClick={() => this.action()}>Favorites</button>
+              <button onClick={() => this.action()}>
+                Favorites ({this.props.numFavorites})
+              </button>
             </Link>
             <Link to="/">
               <button
@@ -72,6 +74,7 @@ NavBar.propTypes = {
   name: PropTypes.string,
   purpose: PropTypes.string,
   signOut: PropTypes.func,
+  numFavorites: PropTypes.number,
 };
 
 export default NavBar;
