@@ -1,5 +1,5 @@
 import React from "react";
-import App from "./App";
+import App from "./app";
 import { createMemoryHistory } from "history";
 import { render, fireEvent, wait } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
