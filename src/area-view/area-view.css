@@ -24,12 +24,14 @@
 }
 
 .card button {
-  width: 100px;
+  left: calc(50% - 50px);
+  min-width: 120px;
   height: 30px;
   position: absolute;
-  bottom: 0px;
+  bottom: 5px;
   border-radius: 2000em;
   cursor: pointer;
+  border: none;
 }
 
 .Area-View {
@@ -47,7 +49,7 @@
     padding: 20px;
   }
   .card button {
-    left: calc(50% - 50px);
-    bottom: 40px;
+    bottom: 20px;
+    width: 20%; 
   }
 }
