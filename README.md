@@ -1,6 +1,8 @@
 # vrad
 We created a bnb rental viewer showcasing listings in four Denver neighborhoods. After signing in, users can select one of four areas before being directed to a listings page. Once the user clicks on a particular listing on the left, an expanded view is populated on the right hand side. The user can favorite listings and navigate to all their favorites by clicking the favorites button (in profile dropdown menu). We utilized React Router for dynamic routing for each listing. We tested the app using React Testing Library and Jest.
 
+deployed here: http://vrad-aj.herokuapp.com/
+
 ## Setup
 1. Clone this repo
 1. Run `npm install`
